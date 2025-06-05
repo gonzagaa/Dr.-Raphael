@@ -1,0 +1,53 @@
+#depoimentos {
+    overflow: hidden;
+    position: relative;
+}
+
+#depoimentos .content {
+    display: inherit;
+}
+
+#depoimentos .content .cards {
+    padding-bottom: 4rem;
+}
+
+#depoimentos .content .card img {
+    width: 100%;
+}
+
+#depoimentos header {
+    margin-bottom: 1rem;
+}
+
+#depoimentos header h2 {
+    margin-bottom: 1rem;
+    font-size: 3.2rem;
+}
+
+#depoimentos a button {
+    margin-top: 2rem;
+}
+
+#depoimentos .swiper-pagination-bullet {
+    background-color: #5151513e; 
+    opacity: 1; 
+    width: 8px;
+    height: 8px;
+}
+  
+#depoimentos .swiper-pagination-bullet-active {
+    background-color: #0C1945; 
+}
+
+@media (min-width: 1080px) {
+    section#depoimentos .content .cards {
+        padding-bottom: 4rem;
+    }
+
+    section#depoimentos a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
