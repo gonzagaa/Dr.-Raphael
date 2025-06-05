@@ -1,0 +1,102 @@
+#praquem {
+    overflow: hidden;
+    position: relative;
+}
+
+#praquem .content {
+    position: relative;
+    z-index: 1;
+}
+
+#praquem img.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 0;
+    opacity: .15;
+    filter: brightness(.6);
+}
+
+#praquem header h2 {
+    margin-bottom: 1rem;
+}
+
+#praquem .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#praquem .card {
+    padding: 2rem;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+     backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(190, 195, 206, 0.75);
+    border-radius: 12px;
+    border: 2px solid #1a2a661e;
+}
+
+#praquem .card h3 {
+    font-size: 2rem;
+    background: var(--gradient);
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+
+#praquem .card:nth-child(1) {
+    padding-inline: 5rem;
+}
+
+#praquem .card p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+}
+
+#praquem h4 {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+#praquem h4 span {
+    font-weight: 700;
+    color: #0C1945;
+}
+
+#praquem a button {
+    margin-top: 2rem;
+}
+
+@media (min-width: 1080px) {
+    section#praquem {
+        padding-block: 8rem;
+    }
+
+    section#praquem .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    section#praquem a button {
+        margin-top: 2rem;
+    }
+}

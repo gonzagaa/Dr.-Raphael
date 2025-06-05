@@ -1,0 +1,83 @@
+#cta {
+    overflow: hidden;
+    position: relative;
+}
+
+#cta .content {
+    position: relative;
+    z-index: 1;
+}
+
+#cta img.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 0;
+    opacity: .15;
+    filter: brightness(.6);
+}
+
+#cta header h2 {
+    margin-bottom: 1rem;
+}
+
+#cta header p {
+    margin-bottom: 0;
+}
+
+#cta header {
+    margin-bottom: 2rem;
+}
+
+#cta a button {
+    margin-top: 2rem;
+}
+
+#cta .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#cta .card {
+    width: 100%;
+    padding: 3rem;
+    background: var(--gradient);
+    border-radius: 1rem;
+    text-align: left;
+}
+
+#cta .card h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+@media (min-width: 1080px) {
+    section#cta {
+        padding-block: 8rem;
+    }
+
+    section#cta .content {
+        padding-inline: 10%;
+    }
+
+    section#cta .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    section#cta .card {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
