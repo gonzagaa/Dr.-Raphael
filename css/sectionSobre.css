@@ -6,7 +6,6 @@
 #sobre .content {
     position: relative;
     z-index: 1;
-
 }
 
 #sobre header h2 {
@@ -19,8 +18,18 @@
     color: #28505C;
 }
 
+#sobre header p {
+    margin-bottom: .5rem;
+}
+
 #sobre header p.dois {
     font-size: 1.6rem;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+#sobre header p.dois span {
+    font-weight: 700;
 }
 
 #sobre img {
