@@ -48,7 +48,7 @@
         text-align: left;
     }
 
-    section#author .content p:nth-child(2) {
+    section#author .content p:nth-child(3) {
         text-align: right;
     }
 }
