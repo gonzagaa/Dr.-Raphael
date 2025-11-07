@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevenção e Tratamento de Varizes | Dr. Raphael Vascular Goiânia</title>
-    <link rel="shortcut icon" href="./assets/icon lancamento.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prevenção e Tratamento de Varizes | Dr. Raphael Vascular Goiânia</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Priorize conexões usadas no início -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
 
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/lenis@1.1.14/dist/lenis.css"
-    />
+  <!-- Google Fonts (já com display=swap para não bloquear) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+  <!-- CSS próprio: mantenha bloqueante (é o estilo base do site) -->
+  <link rel="stylesheet" href="/css/index.css" fetchpriority="high">
 
-    <link rel="stylesheet" href="./css/index.css">
+  <!-- CSS de terceiros como não-crítico (evita bloquear o primeiro paint) -->
+  <link rel="preload" as="style" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css" media="print" onload="this.media='all'">
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MJTKVWZG');</script>
-    <!-- End Google Tag Manager -->
+  <link rel="preload" as="style" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
 
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+
+  <noscript>
+    <!-- Fallback p/ quando JS estiver desabilitado -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  </noscript>
+
+  <!-- Google Tag Manager (async) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MJTKVWZG');
+  </script>
 </head>
+
 <body id="body" class="smooth-scroll-wrapper">
 
     <header class="header" id="home"> 
       <div class="wrapper">
         <div class="content">
             <div class="text">
-                 <img class="logo" src="./assets/logo Raphael.svg" alt="">
+                 <img class="logo" src="./assets/logo Raphael.avif" alt="">
                  <h1>Livre-se das varizes e <span>retome sua rotina em poucos dias</span>.</h1>
                  <p>Tratamento <span>moderno e eficaz</span> para quem quer cuidar da saúde sem abrir mão da estética e nem parar a vida.</p>
                  <a target="_blank" href="https://wa.link/jep1dl"><button class="button">Agende agora seu atendimento</button></a>
@@ -46,8 +58,8 @@
           </div>
       </div>      
       <div class="image">
-        <img class="desktop" src="./assets/bg raphael.webp" alt="">
-        <img class="mobile" src="./assets/bg mobile raphael.webp" alt="">
+        <img fetchpriority="high" loading="eager" class="desktop" src="./assets/bg raphael.avif" alt="">
+        <img fetchpriority="high" loading="eager" class="mobile" src="./assets/bg mobile raphael.avif" alt="">
       </div>
 
       <div class="custom-shape-divider-bottom-1749062038">
@@ -98,15 +110,15 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.webp" alt="">
+      <img class="bg" src="./assets/bgsection.avif" alt="">
 
       <div class="wrapper">
         <div class="content">
-          <img class="desktop" src="./assets/duvidass.webp" alt="">
+          <img class="desktop" src="./assets/duvidass.avif" alt="">
 
           <header>
             <h2>Tem dúvidas se o tratamento <span>é seguro ou doloroso?</span></h2>
-            <img class="mobile" src="./assets/duvidass.webp" alt="">
+            <img class="mobile" src="./assets/duvidass.avif" alt="">
             <p>O nosso método é <span>moderno, seguro e baseado em evidências científicas</span>. <span>A grande maioria dos pacientes</span> relatam melhora significativa dos sintomas já nos primeiros dias.</p>
             <h3>Ah, e não precisa de <span>repouso prolongado</span>: em <span>24h</span> você já pode <span>retomar a maior parte das suas atividades</span>.</h3>
             <a target="_blank" href="https://wa.link/jep1dl"><button class="button">Quero tratar minhas varizes</button></a>
@@ -132,27 +144,27 @@
           <div class="swiper mySwiper3">
             <div class="cards swiper-wrapper">
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/1.webp" alt="">
+                <img src="./assets/depoimentos/1.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/2.webp" alt="">
+                <img src="./assets/depoimentos/2.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/3.webp" alt="">
+                <img src="./assets/depoimentos/3.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/4.webp" alt="">
+                <img src="./assets/depoimentos/4.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/5.webp" alt="">
+                <img src="./assets/depoimentos/5.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/6.webp" alt="">
+                <img src="./assets/depoimentos/6.avif" alt="">
               </div>
             </div>
 
@@ -168,27 +180,27 @@
           <div class="swiper mySwiper3">
             <div class="cards swiper-wrapper">
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/1.webp" alt="">
+                <img src="./assets/estrutura/1.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/2.webp" alt="">
+                <img src="./assets/estrutura/2.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/3.webp" alt="">
+                <img src="./assets/estrutura/3.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/4.webp" alt="">
+                <img src="./assets/estrutura/4.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/6.webp" alt="">
+                <img src="./assets/estrutura/6.avif" alt="">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/5.webp" alt="">
+                <img src="./assets/estrutura/5.avif" alt="">
               </div>
             </div>
 
@@ -204,7 +216,7 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.webp" alt="">
+      <img class="bg" src="./assets/bgsection.avif" alt="">
       
       <div class="wrapper">
         <div class="content">
@@ -249,7 +261,7 @@
     <section id="sobre">
       <div class="wrapper">
         <div class="content">
-          <img src="./assets/foto raphael.webp" alt="">
+          <img src="./assets/foto raphael.avif" alt="">
 
           <header>
             <h2><span>Sobre o Dr.</span> Raphael Gomes Morais</h2>
@@ -272,7 +284,7 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.webp" alt="">
+      <img class="bg" src="./assets/bgsection.avif" alt="">
 
       <div class="wrapper">
         <div class="content">
@@ -283,19 +295,19 @@
 
           <div class="cards">
             <div class="card">
-              <img src="./assets/icon1.svg" alt="">
+              <img src="./assets/icon1.avif" alt="">
               <h3>Tratamento de Varizes e Vasinhos</h3>
               <p>Tratamentos modernos com laser e escleroterapia. Além dos casos que necessitam de tratamento com cirurgia minimamente invasiva, sem cortes.</p>
             </div>
 
             <div class="card">
-              <img src="./assets/icon2.svg" alt="">
+              <img src="./assets/icon2.avif" alt="">
               <h3>Ultrassonografia vascular</h3>
               <p>Avaliação da saúde vascular com possibilidade de mapeamento de toda a sua circulação.</p>
             </div>
 
             <div class="card">
-              <img src="./assets/icon3.svg" alt="">
+              <img src="./assets/icon3.avif" alt="">
               <h3>Cateteres para quimioterapia</h3>
               <p>Garantir acesso vascular, sobrevida e qualidade de vida aos pacientes em tratamentos oncológicos.</p>
             </div>
