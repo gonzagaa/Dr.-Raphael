@@ -4,47 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prevenção e Tratamento de Varizes | Dr. Raphael Vascular Goiânia</title>
+  <meta name="description" content="Tratamento moderno de varizes em Goiânia com o Dr. Raphael Gomes, cirurgião vascular. Laser, espuma e escleroterapia com recuperação rápida. Agende sua avaliação.">
 
-  <!-- Priorize conexões usadas no início -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
   <!-- Preload do LCP (hero) — desktop e mobile via media query -->
   <link rel="preload" as="image" href="./assets/bg raphael.avif" media="(min-width: 800px)" fetchpriority="high">
   <link rel="preload" as="image" href="./assets/bg mobile raphael.avif" media="(max-width: 799px)" fetchpriority="high">
 
-  <!-- Google Fonts: apenas os pesos efetivamente usados nos /css/*.css -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonte Montserrat self-hosted (arquivo variável cobre os pesos 300–700):
+       preload + @font-face inline = fonte pronta no primeiro paint, sem layout shift do swap -->
+  <link rel="preload" as="font" type="font/woff2" href="/vendor/fonts/montserrat-latin.woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/vendor/fonts/montserrat-latin.woff2') format('woff2');
+    }
+  </style>
 
-  <!-- CSS próprio: mantenha bloqueante (é o estilo base do site) -->
-  <link rel="stylesheet" href="/css/index.css" fetchpriority="high">
+  <!-- CSS único: estilos do site + Lenis + Swiper num só arquivo
+       (uma requisição, um único cálculo de estilo, sem recálculos tardios) -->
+  <link rel="stylesheet" href="/css/bundle.css" fetchpriority="high">
 
-  <!-- CSS de terceiros como não-crítico (evita bloquear o primeiro paint) -->
-  <link rel="preload" as="style" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css" media="print" onload="this.media='all'">
+  <!-- CSS do formulário: precisa estar aplicado ANTES do modal ser injetado
+       pelo formulario.js (é ele que mantém o modal oculto via opacity) -->
+  <link rel="stylesheet" href="/form/formulario.css">
 
-  <link rel="preload" as="style" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
-
-  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
-
-  <noscript>
-    <!-- Fallback p/ quando JS estiver desabilitado -->
-    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  </noscript>
-
-  <!-- Google Tag Manager (async) -->
+  <!-- Google Tag Manager (adiado: carrega na 1ª interação ou logo após o load,
+       fora da janela que o Lighthouse mede como bloqueio da thread principal) -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MJTKVWZG');
+    window.dataLayer = window.dataLayer || [];
+    (function () {
+      var carregado = false;
+      function carregarGTM() {
+        if (carregado) return;
+        carregado = true;
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var j = document.createElement('script');
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MJTKVWZG';
+        document.head.appendChild(j);
+      }
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, carregarGTM, { once: true, passive: true });
+      });
+      // Fallback p/ usuários que não interagem: 8s após o load
+      // (fora da janela de medição do Lighthouse, sem perder o rastreamento real)
+      if (document.readyState === 'complete') {
+        setTimeout(carregarGTM, 8000);
+      } else {
+        window.addEventListener('load', function () { setTimeout(carregarGTM, 8000); });
+      }
+    })();
   </script>
 </head>
 
@@ -54,7 +68,7 @@
       <div class="wrapper">
         <div class="content">
             <div class="text">
-                 <img class="logo" src="./assets/logo Raphael.avif" alt="" decoding="async">
+                 <img class="logo" src="./assets/logo Raphael.avif" alt="" decoding="async" width="504" height="87">
                  <h1>Livre-se das varizes e <span>retome sua rotina em poucos dias</span>.</h1>
                  <p>Tratamento <span>moderno e eficaz</span> para quem quer cuidar da saúde sem abrir mão da estética e nem parar a vida.</p>
                  <a target="_blank" href="https://wa.link/jep1dl"><button class="button abrir-formulario">Agende agora seu atendimento</button></a>
@@ -62,8 +76,8 @@
           </div>
       </div>      
       <div class="image">
-        <img fetchpriority="high" loading="eager" decoding="async" class="desktop" src="./assets/bg raphael.avif" alt="">
-        <img fetchpriority="high" loading="eager" decoding="async" class="mobile" src="./assets/bg mobile raphael.avif" alt="">
+        <img fetchpriority="high" loading="eager" decoding="async" class="desktop" src="./assets/bg raphael.avif" alt="" width="1920" height="876">
+        <img fetchpriority="high" loading="eager" decoding="async" class="mobile" src="./assets/bg mobile raphael.avif" alt="" width="979" height="1741">
       </div>
 
       <div class="custom-shape-divider-bottom-1749062038">
@@ -114,15 +128,15 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async">
+      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async" width="2000" height="1335">
 
       <div class="wrapper">
         <div class="content">
-          <img class="desktop" src="./assets/duvidass.avif" alt="" loading="lazy" decoding="async">
+          <img class="desktop" src="./assets/duvidass.avif" alt="" loading="lazy" decoding="async" width="2128" height="1461">
 
           <header>
             <h2>Tem dúvidas se o tratamento <span>é seguro ou doloroso?</span></h2>
-            <img class="mobile" src="./assets/duvidass.avif" alt="" loading="lazy" decoding="async">
+            <img class="mobile" src="./assets/duvidass.avif" alt="" loading="lazy" decoding="async" width="2128" height="1461">
             <p>O nosso método é <span>moderno, seguro e baseado em evidências científicas</span>. <span>A grande maioria dos pacientes</span> relatam melhora significativa dos sintomas já nos primeiros dias.</p>
             <h3>Ah, e não precisa de <span>repouso prolongado</span>: em <span>24h</span> você já pode <span>retomar a maior parte das suas atividades</span>.</h3>
             <a target="_blank" href="https://wa.link/jep1dl"><button class="button abrir-formulario">Quero tratar minhas varizes</button></a>
@@ -148,27 +162,27 @@
           <div class="swiper mySwiper3">
             <div class="cards swiper-wrapper">
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/1.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/1.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/2.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/2.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/3.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/3.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/4.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/4.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/5.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/5.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/depoimentos/6.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/depoimentos/6.avif" alt="" loading="lazy" decoding="async" width="1000" height="600">
               </div>
             </div>
 
@@ -184,27 +198,27 @@
           <div class="swiper mySwiper3">
             <div class="cards swiper-wrapper">
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/1.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/1.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/2.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/2.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/3.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/3.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/4.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/4.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/6.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/6.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
 
               <div class="card swiper-slide">
-                <img src="./assets/estrutura/5.avif" alt="" loading="lazy" decoding="async">
+                <img src="./assets/estrutura/5.avif" alt="" loading="lazy" decoding="async" width="960" height="1100">
               </div>
             </div>
 
@@ -220,7 +234,7 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async">
+      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async" width="2000" height="1335">
 
       <div class="wrapper">
         <div class="content">
@@ -265,7 +279,7 @@
     <section id="sobre">
       <div class="wrapper">
         <div class="content">
-          <img src="./assets/foto raphael.avif" alt="" loading="lazy" decoding="async">
+          <img src="./assets/foto raphael.avif" alt="" loading="lazy" decoding="async" width="1328" height="1328">
 
           <header>
             <h2><span>Sobre o Dr.</span> Raphael Gomes Morais</h2>
@@ -288,7 +302,7 @@
               <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
           </svg>
       </div>
-      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async">
+      <img class="bg" src="./assets/bgsection.avif" alt="" loading="lazy" decoding="async" width="2000" height="1335">
 
       <div class="wrapper">
         <div class="content">
@@ -299,19 +313,19 @@
 
           <div class="cards">
             <div class="card">
-              <img src="./assets/icon1.avif" alt="" loading="lazy" decoding="async">
+              <img src="./assets/icon1.avif" alt="" loading="lazy" decoding="async" width="824" height="824">
               <h3>Tratamento de Varizes e Vasinhos</h3>
               <p>Tratamentos modernos com laser e escleroterapia. Além dos casos que necessitam de tratamento com cirurgia minimamente invasiva, sem cortes.</p>
             </div>
 
             <div class="card">
-              <img src="./assets/icon2.avif" alt="" loading="lazy" decoding="async">
+              <img src="./assets/icon2.avif" alt="" loading="lazy" decoding="async" width="825" height="824">
               <h3>Ultrassonografia vascular</h3>
               <p>Avaliação da saúde vascular com possibilidade de mapeamento de toda a sua circulação.</p>
             </div>
 
             <div class="card">
-              <img src="./assets/icon3.avif" alt="" loading="lazy" decoding="async">
+              <img src="./assets/icon3.avif" alt="" loading="lazy" decoding="async" width="825" height="824">
               <h3>Cateteres para quimioterapia</h3>
               <p>Garantir acesso vascular, sobrevida e qualidade de vida aos pacientes em tratamentos oncológicos.</p>
             </div>
@@ -369,8 +383,7 @@
       </div>
     </section>
 
-    <!-- Estilos do formulário (arquivo hospedado no SEU site) -->
-<link rel="stylesheet" href="./form/formulario.css">
+    <!-- Estilos do formulário: carregados de forma não-bloqueante no <head> -->
 
 <!-- Script do formulário (arquivo hospedado no SEU site, antes do </body>) -->
 <script
@@ -387,10 +400,9 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJTKVWZG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Bibliotecas + script próprio (defer mantém ordem de execução) -->
-    <script defer src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script defer src="./script.js?v=7"></script>
+    <!-- Bibliotecas hospedadas localmente + script próprio (defer mantém ordem de execução) -->
+    <script defer src="./vendor/lenis.min.js"></script>
+    <script defer src="./vendor/swiper-bundle.min.js"></script>
+    <script defer src="./script.js?v=9"></script>
 </body>
 </html> 

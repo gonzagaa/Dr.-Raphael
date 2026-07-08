@@ -1,3 +1,8 @@
+/* ATENÇÃO: este arquivo NÃO é mais usado pelo index.html.
+   O site agora carrega /css/bundle.css (todos os arquivos abaixo + vendor/lenis.css
+   + vendor/swiper-bundle.min.css concatenados), porque a cadeia de @import
+   atrasava a renderização. Se editar qualquer CSS desta pasta, regenere o bundle
+   concatenando os arquivos NA MESMA ORDEM abaixo (site primeiro, vendor por último). */
 @import './global.css';
 @import './home.css';
 @import './sectionPassos.css';

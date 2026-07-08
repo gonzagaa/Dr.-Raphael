@@ -6,6 +6,12 @@
     font-family: "Montserrat", sans-serif;
 }
 
+/* Os atributos width/height nas <img> reservam o espaço (evita CLS);
+   height auto garante que o CSS de largura mantenha a proporção natural */
+img {
+    height: auto;
+}
+
 :root {
     font-size: 62.5%;
 
